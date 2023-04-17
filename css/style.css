@@ -1,0 +1,16 @@
+body {
+    background-image: url(../img/fondo.png);
+    background-repeat: no-repeat;
+    background-color: black;
+}
+header {
+    background-image: url(../img/header.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.caja {
+    background-color: rgba(0, 0, 0, 0.64);
+}
+.caja1 {
+    background-color: rgba(0, 0, 0, 0.64);
+}
