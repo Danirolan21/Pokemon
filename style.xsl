@@ -44,6 +44,7 @@
                         <h1 class="opacity-50 text-center text-light">POKEMONS</h1>
                         <div class="row justify-content-between mx-0">
                             <xsl:for-each select="pokedex/pokemon">
+                                <xsl:sort select="species" order="ascending" data-type="text"/>
                                 <div class="card col-lg-6 bg-transparent text-center border-0">
                                     <div class="card-body">
                                         <div class="border border-3 rounded">
@@ -56,7 +57,14 @@
                                                     <p class="mb-0 ps-3 text-light text-start">HP: <xsl:value-of select="baseStats/HP"/></p>
                                                     <p class="mb-0 ps-3 text-light text-start">ATK: <xsl:value-of select="baseStats/ATK"/></p>
                                                     <p class="mb-0 ps-3 text-light text-start">DEF: <xsl:value-of select="baseStats/DEF"/></p>
-                                                    <p class="mb-0 ps-3 text-light text-start">SPD: <xsl:value-of select="baseStats/SPD"/></p>
+                                                    <xsl:choose>
+                                                        <xsl:when test="baseStats/SPD &gt; 100">
+                                                            <p class="mb-0 ps-3 text-danger text-start">SPD: <xsl:value-of select="baseStats/SPD"/></p>
+                                                        </xsl:when>
+                                                        <xsl:otherwise>
+                                                            <p class="mb-0 ps-3 text-light text-start">SPD: <xsl:value-of select="baseStats/SPD"/></p>
+                                                        </xsl:otherwise>
+                                                    </xsl:choose>
                                                     <p class="mb-0 ps-3 text-light text-start">SATK: <xsl:value-of select="baseStats/SATK"/></p>
                                                     <p class="mb-0 ps-3 text-light text-start">SDEF: <xsl:value-of select="baseStats/SDEF"/></p>
                                                     <p class="mb-0 ps-3 text-light text-start">
